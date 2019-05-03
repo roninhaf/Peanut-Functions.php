@@ -58,8 +58,8 @@ add_action('login_head', 'custom_login_css');
 
 function agence_peanut_theme_script_includer( ) {
     wp_enqueue_script( 
-    	'scriptV2',
-    	get_theme_file_uri( 'js/scriptV2.js' ),
+    	'scriptV3',
+    	get_theme_file_uri( 'js/scriptV3.js' ),
     	array( 'jquery' )
     );
 }
