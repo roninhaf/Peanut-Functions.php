@@ -56,6 +56,8 @@ function custom_login_css()  {
 }
 add_action('login_head', 'custom_login_css');
 
+
+// Enqueuing scipts
 function agence_peanut_theme_script_includer( ) {
     wp_enqueue_script( 
     	'scriptV3',
@@ -64,5 +66,17 @@ function agence_peanut_theme_script_includer( ) {
     );
 }
 add_action( 'wp_enqueue_scripts', 'agence_peanut_theme_script_includer' );
+
+function agence_peanut_theme_cards_filtering( ) {
+    if ( ! is_page( array( 'nos-acteurs', 'nos-mannequins', 'our-actors', 'our-models' )) ) {
+    	return;
+	}
+
+    wp_enqueue_script( 
+        'cardsFilter', 
+        get_theme_file_uri('js/cardsFilter.js')
+    );
+}
+add_action( 'wp_enqueue_scripts', 'agence_peanut_theme_cards_filtering' );
 
 ?>
